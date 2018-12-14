@@ -24,8 +24,8 @@ class LeetCodeSpider(scrapy.Spider):
 
         has_contest = False if len(badge_onprogress_bar) <= 6 else True
 
-        columns = ['email', 'user_id', 'first_name', 'last_name', 'num_solved', 'num_accepts','num_submissions', 'solved_percentage',
-                   'points', 'finished_contests', 'contest_rating' , 'global_ranking', 'date']
+        columns = ['email', 'user_id', 'first_name', 'last_name', 'num_solved', 'num_accepts','num_submissions', 'accepted_percentage',
+                   'finished_contests', 'date']
 
         user_model = None
 
@@ -43,15 +43,15 @@ class LeetCodeSpider(scrapy.Spider):
                 'num_accepts' :  int(badge_onprogress_bar[4].split('\n')[1].strip().split('/')[0].strip()),
                 'num_submissions': int(badge_onprogress_bar[4].split('\n')[1].strip().split('/')[1].strip()),
 
-                'solved_percentage': float(response.xpath("//li[@class='list-group-item'][3]/span[@class='badge progress-bar-info']/text()").extract()[0].split('\n')[1].strip().replace('%','').strip()) ,
-                'points': int(badge_onprogress_bar[5].split('\n')[1].strip()),
+                'accepted_percentage': float(response.xpath("//li[@class='list-group-item'][3]/span[@class='badge progress-bar-info']/text()").extract()[0].split('\n')[1].strip().replace('%','').strip()) ,
+                # 'points': int(badge_onprogress_bar[5].split('\n')[1].strip()),
 
                 'finished_contests': int(badge_onprogress_bar[0].split('\n')[1].strip()),
-
-                'contest_rating': int(badge_onprogress_bar[1].split('\n')[2].strip()),
-
-                'global_ranking' : badge_onprogress_bar[2].split('\n')[1].strip(),
-
+                #
+                # 'contest_rating': int(badge_onprogress_bar[1].split('\n')[2].strip()),
+                #
+                # 'global_ranking' : badge_onprogress_bar[2].split('\n')[1].strip(),
+                #
 
                 'date': str(date.today())
 
@@ -71,8 +71,8 @@ class LeetCodeSpider(scrapy.Spider):
                 'num_accepts' :  int(badge_onprogress_bar[2].split('\n')[1].strip().split('/')[0].strip()),
                 'num_submissions': int(badge_onprogress_bar[2].split('\n')[1].strip().split('/')[1].strip()),
 
-                'solved_percentage': float(response.xpath("//li[@class='list-group-item'][3]/span[@class='badge progress-bar-info']/text()").extract()[0].split('\n')[1].strip().replace('%','').strip()) ,
-                'points': int(badge_onprogress_bar[3].split('\n')[1].strip()),
+                'accepted_percentage': float(response.xpath("//li[@class='list-group-item'][3]/span[@class='badge progress-bar-info']/text()").extract()[0].split('\n')[1].strip().replace('%','').strip()) ,
+                # 'points': int(badge_onprogress_bar[3].split('\n')[1].strip()),
 
                 'finished_contests': int(badge_onprogress_bar[0].split('\n')[1].strip()),
                 'date': str(date.today())

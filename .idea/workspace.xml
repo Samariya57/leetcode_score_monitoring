@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f348e716-a33f-4f7b-bb46-3a6e13c7d170" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetCode_spider/data/fellows.csv" afterPath="$PROJECT_DIR$/leetCode_spider/data/fellows.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetCode_spider/spiders/leetcode_spider.py" afterPath="$PROJECT_DIR$/leetCode_spider/spiders/leetcode_spider.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="leetcode_spider.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="leetcode_spider.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetCode_spider/spiders/leetcode_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="64" column="74" lean-forward="false" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
+            <state relative-caret-position="-205">
+              <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -26,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fellows.csv" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fellows.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetCode_spider/data/fellows.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66">
@@ -175,21 +174,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetCode_spider/spiders/leetcode_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="64" column="74" lean-forward="false" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetCode_spider/data/fellows.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetCode_spider/spiders/leetcode_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-205">
+          <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
