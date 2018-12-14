@@ -34,7 +34,7 @@ class LeetCodeSpider(scrapy.Spider):
             user_model = {
 
                 # 'email': product_id,
-                # 'user_id': product.title,
+                'user_id': self.start_urls[self.userIndex].split('/')[-1],
 
                 # 'first_name': product_id,
                 # 'last_name': product.title,
@@ -62,7 +62,7 @@ class LeetCodeSpider(scrapy.Spider):
             user_model = {
 
                 # 'email': product_id,
-                # 'user_id': product.title,
+                'user_id': self.start_urls[self.userIndex].split('/')[-1],
 
                 # 'first_name': product_id,
                 # 'last_name': product.title,
