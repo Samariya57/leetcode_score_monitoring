@@ -1,0 +1,20 @@
+[2018-12-28 23:10:02,385] {models.py:1361} INFO - Dependencies all met for <TaskInstance: leetCoode_scrapying_dag.init_msg 2018-12-29T04:05:00+00:00 [queued]>
+[2018-12-28 23:10:02,387] {models.py:1361} INFO - Dependencies all met for <TaskInstance: leetCoode_scrapying_dag.init_msg 2018-12-29T04:05:00+00:00 [queued]>
+[2018-12-28 23:10:02,387] {models.py:1573} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-12-28 23:10:02,395] {models.py:1595} INFO - Executing <Task(BashOperator): init_msg> on 2018-12-29T04:05:00+00:00
+[2018-12-28 23:10:02,395] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run leetCoode_scrapying_dag init_msg 2018-12-29T04:05:00+00:00 --job_id 4 --raw -sd DAGS_FOLDER/scraping_scheduler_dag.py --cfg_path /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T/tmp0v9aj4x9']
+[2018-12-28 23:10:03,097] {base_task_runner.py:101} INFO - Job 4: Subtask init_msg [2018-12-28 23:10:03,096] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2018-12-28 23:10:03,231] {base_task_runner.py:101} INFO - Job 4: Subtask init_msg [2018-12-28 23:10:03,231] {models.py:271} INFO - Filling up the DagBag from /Users/zhonghengli/Documents/Insight/leetCodeProject/leetcode_score_monitoring/src/airflow/airflow_home/dags/scraping_scheduler_dag.py
+[2018-12-28 23:10:03,300] {base_task_runner.py:101} INFO - Job 4: Subtask init_msg [2018-12-28 23:10:03,299] {cli.py:484} INFO - Running <TaskInstance: leetCoode_scrapying_dag.init_msg 2018-12-29T04:05:00+00:00 [running]> on host zhonghengsmbp2.fios-router.home
+[2018-12-28 23:10:03,324] {bash_operator.py:74} INFO - Tmp dir root location: 
+ /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T
+[2018-12-28 23:10:03,324] {bash_operator.py:87} INFO - Temporary script location: /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T/airflowtmpqn90rd91/init_msgzxk7pi54
+[2018-12-28 23:10:03,324] {bash_operator.py:97} INFO - Running command: echo "Scrapy_Start!!"
+[2018-12-28 23:10:03,335] {bash_operator.py:106} INFO - Output:
+[2018-12-28 23:10:03,338] {bash_operator.py:110} INFO - Scrapy_Start!!
+[2018-12-28 23:10:03,339] {bash_operator.py:114} INFO - Command exited with return code 0
+[2018-12-28 23:10:07,386] {logging_mixin.py:95} INFO - [2018-12-28 23:10:07,385] {jobs.py:2627} INFO - Task exited with return code 0

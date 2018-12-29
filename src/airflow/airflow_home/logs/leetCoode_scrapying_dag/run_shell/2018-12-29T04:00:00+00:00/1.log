@@ -1,0 +1,85 @@
+[2018-12-28 23:08:53,184] {models.py:1361} INFO - Dependencies all met for <TaskInstance: leetCoode_scrapying_dag.run_shell 2018-12-29T04:00:00+00:00 [queued]>
+[2018-12-28 23:08:53,196] {models.py:1361} INFO - Dependencies all met for <TaskInstance: leetCoode_scrapying_dag.run_shell 2018-12-29T04:00:00+00:00 [queued]>
+[2018-12-28 23:08:53,196] {models.py:1573} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+
+[2018-12-28 23:08:53,206] {models.py:1595} INFO - Executing <Task(BashOperator): run_shell> on 2018-12-29T04:00:00+00:00
+[2018-12-28 23:08:53,206] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run leetCoode_scrapying_dag run_shell 2018-12-29T04:00:00+00:00 --job_id 3 --raw -sd DAGS_FOLDER/scraping_scheduler_dag.py --cfg_path /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T/tmpe0p31fvi']
+[2018-12-28 23:08:53,970] {base_task_runner.py:101} INFO - Job 3: Subtask run_shell [2018-12-28 23:08:53,970] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2018-12-28 23:08:54,115] {base_task_runner.py:101} INFO - Job 3: Subtask run_shell [2018-12-28 23:08:54,114] {models.py:271} INFO - Filling up the DagBag from /Users/zhonghengli/Documents/Insight/leetCodeProject/leetcode_score_monitoring/src/airflow/airflow_home/dags/scraping_scheduler_dag.py
+[2018-12-28 23:08:54,195] {base_task_runner.py:101} INFO - Job 3: Subtask run_shell [2018-12-28 23:08:54,195] {cli.py:484} INFO - Running <TaskInstance: leetCoode_scrapying_dag.run_shell 2018-12-29T04:00:00+00:00 [running]> on host zhonghengsmbp2.fios-router.home
+[2018-12-28 23:08:54,215] {bash_operator.py:74} INFO - Tmp dir root location: 
+ /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T
+[2018-12-28 23:08:54,216] {bash_operator.py:87} INFO - Temporary script location: /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T/airflowtmp4kssvdle/run_shellek7l7bek
+[2018-12-28 23:08:54,216] {bash_operator.py:97} INFO - Running command: sh /Users/zhonghengli/Documents/Insight/leetCodeProject/leetcode_score_monitoring/src/Scraper/run.sh 
+[2018-12-28 23:08:54,230] {bash_operator.py:106} INFO - Output:
+[2018-12-28 23:08:54,251] {bash_operator.py:110} INFO - Scrapy_Start!!
+[2018-12-28 23:08:55,886] {bash_operator.py:110} INFO - 2018-12-28 23:08:55 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: leetCode_spider)
+[2018-12-28 23:08:55,917] {bash_operator.py:110} INFO - 2018-12-28 23:08:55 [scrapy.utils.log] INFO: Versions: lxml 4.2.5.0, libxml2 2.9.8, cssselect 1.0.3, parsel 1.5.1, w3lib 1.19.0, Twisted 18.9.0, Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 03:03:55) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 18.0.0 (OpenSSL 1.1.0j  20 Nov 2018), cryptography 2.4.2, Platform Darwin-18.2.0-x86_64-i386-64bit
+[2018-12-28 23:08:55,921] {bash_operator.py:110} INFO - 2018-12-28 23:08:55 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'leetCode_spider', 'NEWSPIDER_MODULE': 'leetCode_spider.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['leetCode_spider.spiders']}
+[2018-12-28 23:08:55,996] {bash_operator.py:110} INFO - 2018-12-28 23:08:55 [scrapy.middleware] INFO: Enabled extensions:
+[2018-12-28 23:08:55,996] {bash_operator.py:110} INFO - ['scrapy.extensions.corestats.CoreStats',
+[2018-12-28 23:08:55,996] {bash_operator.py:110} INFO -  'scrapy.extensions.telnet.TelnetConsole',
+[2018-12-28 23:08:55,996] {bash_operator.py:110} INFO -  'scrapy.extensions.memusage.MemoryUsage',
+[2018-12-28 23:08:55,996] {bash_operator.py:110} INFO -  'scrapy.extensions.logstats.LogStats']
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.middleware] INFO: Enabled downloader middlewares:
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO - ['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+[2018-12-28 23:08:56,069] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+[2018-12-28 23:08:56,070] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+[2018-12-28 23:08:56,070] {bash_operator.py:110} INFO -  'scrapy.downloadermiddlewares.stats.DownloaderStats']
+[2018-12-28 23:08:56,074] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.middleware] INFO: Enabled spider middlewares:
+[2018-12-28 23:08:56,074] {bash_operator.py:110} INFO - ['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+[2018-12-28 23:08:56,074] {bash_operator.py:110} INFO -  'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+[2018-12-28 23:08:56,074] {bash_operator.py:110} INFO -  'scrapy.spidermiddlewares.referer.RefererMiddleware',
+[2018-12-28 23:08:56,074] {bash_operator.py:110} INFO -  'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+[2018-12-28 23:08:56,074] {bash_operator.py:110} INFO -  'scrapy.spidermiddlewares.depth.DepthMiddleware']
+[2018-12-28 23:08:56,075] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.middleware] INFO: Enabled item pipelines:
+[2018-12-28 23:08:56,075] {bash_operator.py:110} INFO - []
+[2018-12-28 23:08:56,075] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.core.engine] INFO: Spider opened
+[2018-12-28 23:08:56,085] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+[2018-12-28 23:08:56,086] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+[2018-12-28 23:08:56,202] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://leetcode.com/robots.txt> (referer: None)
+[2018-12-28 23:08:56,327] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://leetcode.com/zl1761/> from <GET https://leetcode.com/zl1761>
+[2018-12-28 23:08:56,366] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://leetcode.com/hideaki/> from <GET https://leetcode.com/hideaki>
+[2018-12-28 23:08:56,377] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://leetcode.com/oreki47/> from <GET https://leetcode.com/oreki47>
+[2018-12-28 23:08:56,562] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://leetcode.com/hideaki/> (referer: None)
+[2018-12-28 23:08:56,568] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://leetcode.com/zl1761/> (referer: None)
+[2018-12-28 23:08:56,763] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://leetcode.com/oreki47/> (referer: None)
+[2018-12-28 23:08:56,902] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.core.engine] INFO: Closing spider (finished)
+[2018-12-28 23:08:56,903] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+[2018-12-28 23:08:56,903] {bash_operator.py:110} INFO - {'downloader/request_bytes': 1902,
+[2018-12-28 23:08:56,903] {bash_operator.py:110} INFO -  'downloader/request_count': 7,
+[2018-12-28 23:08:56,903] {bash_operator.py:110} INFO -  'downloader/request_method_count/GET': 7,
+[2018-12-28 23:08:56,903] {bash_operator.py:110} INFO -  'downloader/response_bytes': 40027,
+[2018-12-28 23:08:56,903] {bash_operator.py:110} INFO -  'downloader/response_count': 7,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'downloader/response_status_count/200': 4,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'downloader/response_status_count/301': 3,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'finish_reason': 'finished',
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'finish_time': datetime.datetime(2018, 12, 29, 4, 8, 56, 902890),
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'log_count/DEBUG': 8,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'log_count/INFO': 7,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'memusage/max': 92168192,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'memusage/startup': 92168192,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'response_received_count': 4,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'scheduler/dequeued': 6,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'scheduler/dequeued/memory': 6,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'scheduler/enqueued': 6,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'scheduler/enqueued/memory': 6,
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO -  'start_time': datetime.datetime(2018, 12, 29, 4, 8, 56, 84823)}
+[2018-12-28 23:08:56,904] {bash_operator.py:110} INFO - 2018-12-28 23:08:56 [scrapy.core.engine] INFO: Spider closed (finished)
+[2018-12-28 23:08:56,918] {bash_operator.py:110} INFO - user_model: {'user_id': 'zl1761', 'num_solved': 30, 'num_accepts': 57, 'num_submissions': 139, 'accepted_percentage': 41.0, 'finished_contests': 0, 'date': '2018-12-28'}
+[2018-12-28 23:08:56,918] {bash_operator.py:110} INFO - user_model: {'user_id': 'hideaki', 'num_solved': 124, 'num_accepts': 360, 'num_submissions': 630, 'accepted_percentage': 57.1, 'finished_contests': 0, 'date': '2018-12-28'}
+[2018-12-28 23:08:56,918] {bash_operator.py:110} INFO - user_model: {'user_id': 'oreki47', 'num_solved': 244, 'num_accepts': 400, 'num_submissions': 855, 'accepted_percentage': 46.8, 'finished_contests': 3, 'date': '2018-12-28'}
+[2018-12-28 23:08:56,918] {bash_operator.py:110} INFO - export fellows.csv
+[2018-12-28 23:08:57,066] {bash_operator.py:114} INFO - Command exited with return code 0
+[2018-12-28 23:08:58,171] {logging_mixin.py:95} INFO - [2018-12-28 23:08:58,170] {jobs.py:2627} INFO - Task exited with return code 0

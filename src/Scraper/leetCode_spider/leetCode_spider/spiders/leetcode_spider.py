@@ -90,7 +90,7 @@ class LeetCodeSpider(scrapy.Spider):
 
             print("export fellows.csv")
 
-            df.to_csv("leetCode_spider/data/fellows.csv", sep=",")
+            df.to_csv("leetCode_spider/data/" + str(date.today()) + "_fellows.csv", sep=",")
 
 
 
