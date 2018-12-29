@@ -2,12 +2,11 @@ import datetime as dt
 
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
-from airflow.operators.python_operator import PythonOperator
 
 
 default_args = {
     'owner': 'airflow',
-    'start_date': dt.datetime(2018, 9, 24, 10, 00, 00),
+    'start_date': dt.datetime(2018, 12, 20, 10, 00, 00),
     'concurrency': 1,
     'retries': 0
 }

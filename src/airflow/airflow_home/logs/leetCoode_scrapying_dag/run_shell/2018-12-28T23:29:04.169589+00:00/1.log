@@ -1,0 +1,44 @@
+[2018-12-28 23:29:15,268] {models.py:1361} INFO - Dependencies all met for <TaskInstance: leetCoode_scrapying_dag.run_shell 2018-12-28T23:29:04.169589+00:00 [queued]>
+[2018-12-28 23:29:15,278] {models.py:1361} INFO - Dependencies all met for <TaskInstance: leetCoode_scrapying_dag.run_shell 2018-12-28T23:29:04.169589+00:00 [queued]>
+[2018-12-28 23:29:15,279] {models.py:1573} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 0
+--------------------------------------------------------------------------------
+
+[2018-12-28 23:29:15,290] {models.py:1595} INFO - Executing <Task(BashOperator): run_shell> on 2018-12-28T23:29:04.169589+00:00
+[2018-12-28 23:29:15,290] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run leetCoode_scrapying_dag run_shell 2018-12-28T23:29:04.169589+00:00 --job_id 10 --raw -sd DAGS_FOLDER/scraping_scheduler_dag.py --cfg_path /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T/tmpbxt0lqrw']
+[2018-12-28 23:29:16,056] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell [2018-12-28 23:29:16,056] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2018-12-28 23:29:16,210] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell [2018-12-28 23:29:16,210] {models.py:271} INFO - Filling up the DagBag from /Users/zhonghengli/Documents/Insight/leetCodeProject/leetcode_score_monitoring/src/airflow/airflow_home/dags/scraping_scheduler_dag.py
+[2018-12-28 23:29:16,287] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell [2018-12-28 23:29:16,287] {cli.py:484} INFO - Running <TaskInstance: leetCoode_scrapying_dag.run_shell 2018-12-28T23:29:04.169589+00:00 [running]> on host zhonghengsmbp2.fios-router.home
+[2018-12-28 23:29:16,307] {bash_operator.py:74} INFO - Tmp dir root location: 
+ /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T
+[2018-12-28 23:29:16,307] {bash_operator.py:87} INFO - Temporary script location: /var/folders/fz/pxkgsp6j3d946l3f71v3sj_00000gn/T/airflowtmpv4e7gqot/run_shellkzcc2jee
+[2018-12-28 23:29:16,308] {bash_operator.py:97} INFO - Running command: sh $LEET_CODE_PROJECT_PATH/src/Scraper/run.sh 
+[2018-12-28 23:29:16,320] {bash_operator.py:106} INFO - Output:
+[2018-12-28 23:29:16,328] {bash_operator.py:110} INFO - sh: /src/Scraper/run.sh: No such file or directory
+[2018-12-28 23:29:16,329] {bash_operator.py:114} INFO - Command exited with return code 127
+[2018-12-28 23:29:16,338] {models.py:1760} ERROR - Bash command failed
+Traceback (most recent call last):
+  File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/lib/python3.6/site-packages/airflow/models.py", line 1659, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/lib/python3.6/site-packages/airflow/operators/bash_operator.py", line 118, in execute
+    raise AirflowException("Bash command failed")
+airflow.exceptions.AirflowException: Bash command failed
+[2018-12-28 23:29:16,343] {models.py:1791} INFO - Marking task as FAILED.
+[2018-12-28 23:29:16,360] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell Traceback (most recent call last):
+[2018-12-28 23:29:16,360] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell   File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/bin/airflow", line 32, in <module>
+[2018-12-28 23:29:16,360] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell     args.func(args)
+[2018-12-28 23:29:16,360] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell   File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/lib/python3.6/site-packages/airflow/utils/cli.py", line 74, in wrapper
+[2018-12-28 23:29:16,360] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell     return f(*args, **kwargs)
+[2018-12-28 23:29:16,360] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell   File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/lib/python3.6/site-packages/airflow/bin/cli.py", line 490, in run
+[2018-12-28 23:29:16,360] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell     _run(args, dag, ti)
+[2018-12-28 23:29:16,360] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell   File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/lib/python3.6/site-packages/airflow/bin/cli.py", line 406, in _run
+[2018-12-28 23:29:16,361] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell     pool=args.pool,
+[2018-12-28 23:29:16,361] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell   File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/lib/python3.6/site-packages/airflow/utils/db.py", line 74, in wrapper
+[2018-12-28 23:29:16,361] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell     return func(*args, **kwargs)
+[2018-12-28 23:29:16,361] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell   File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/lib/python3.6/site-packages/airflow/models.py", line 1659, in _run_raw_task
+[2018-12-28 23:29:16,361] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell     result = task_copy.execute(context=context)
+[2018-12-28 23:29:16,361] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell   File "/Users/zhonghengli/Documents/Insight/leetCodeProject/Virtualenvs/scrapy_env/lib/python3.6/site-packages/airflow/operators/bash_operator.py", line 118, in execute
+[2018-12-28 23:29:16,361] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell     raise AirflowException("Bash command failed")
+[2018-12-28 23:29:16,361] {base_task_runner.py:101} INFO - Job 10: Subtask run_shell airflow.exceptions.AirflowException: Bash command failed
+[2018-12-28 23:29:20,248] {logging_mixin.py:95} INFO - [2018-12-28 23:29:20,247] {jobs.py:2627} INFO - Task exited with return code 1
