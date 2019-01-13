@@ -1,0 +1,2 @@
+airflow_home/dags/__pycache__/
+airflow_home/logs/scheduler/latest

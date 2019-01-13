@@ -25,10 +25,10 @@ with DAG('leetCoode_scrapying_dag',
     opr_init_msg = BashOperator(task_id='init_msg',
                              bash_command='echo "Scrapy_Start!!"')
 
-    opr_run_shell = BashOperator(task_id='run_shell',
+    opr_run_daily_scraper = BashOperator(task_id='run_daily_scraper',
                              bash_command='cd $LEETCODE_PROJECT_SCRAPER_PATH && sh run.sh ')
 
 
 
-opr_init_msg >> opr_run_shell 
+opr_init_msg >> opr_run_daily_scraper
 
