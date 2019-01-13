@@ -15,9 +15,9 @@ with DAG('leetCoode_scrapying_dag',
          catchup=False,
          default_args=default_args,
          # Set for testing purpose to run in every 5 seconds
-         schedule_interval='*/5 * * * *',
+         # schedule_interval='*/5 * * * *',
          # Should run daily at 11:00 pm
-         # schedule_interval='0 23 * * *',
+         schedule_interval='00 23 * * 1-5',
          ) as dag:
 
 
@@ -26,7 +26,7 @@ with DAG('leetCoode_scrapying_dag',
                              bash_command='echo "Scrapy_Start!!"')
 
     opr_run_shell = BashOperator(task_id='run_shell',
-                             bash_command='sh /Users/zhonghengli/Documents/Insight/leetCodeProject/leetcode_score_monitoring/src/Scraper/run.sh ')
+                             bash_command='cd $LEETCODE_PROJECT_SCRAPER_PATH && sh run.sh ')
 
 
 
