@@ -3,3 +3,4 @@
 src/Scraper/leetCode_spider/.idea/workspace.xml
 *.csv
 .idea
+src/Scraper/leetCode_spider/leetCode_spider/spiders/db_configs.ini
