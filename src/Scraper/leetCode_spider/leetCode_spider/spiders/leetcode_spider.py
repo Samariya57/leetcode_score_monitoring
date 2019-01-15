@@ -23,6 +23,15 @@ import scrapy
 import pandas as pd
 from sqlalchemy import create_engine
 
+from scrapy.spiders import CrawlSpider
+from scrapy.spiders import Rule
+from scrapy.contrib.linkextractors import LinkExtractor
+
+import sqlalchemy as sa
+from sqlalchemy.dialects.postgresql import insert as pg_insert
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
+
 
 # Set up DB configs file path
 projectPath = os.getcwd()
@@ -31,9 +40,25 @@ DB_configs_ini_file_path = "/leetCode_spider/spiders/db_configs.ini"
 print(projectPath + DB_configs_ini_file_path)
 
 
-class LeetCodeSpider(scrapy.Spider):
+
+class leetcode_record(Base):
+    __tablename__ = "leetcode_records"
+    record_id = sa.Column(sa.VARCHAR(70), primary_key=True)
+    user_name = sa.Column(sa.VARCHAR(50))
+    num_solved = sa.Column(sa.INTEGER())
+    num_accepts = sa.Column(sa.INTEGER())
+    num_submissions = sa.Column(sa.INTEGER())
+    accepted_percentage = sa.Column(sa.NUMERIC())
+    finished_contests = sa.Column(sa.INTEGER())
+    record_date = sa.Column(sa.DATE())
+
+
+
+
+class LeetCodeSpider(CrawlSpider):
     name = 'leetcode'
     allowed_domains = ['leetcode.com']
+
 
     def __init__(self, models=None, *args, **kwargs):
         self.endpoints = kwargs.get('user_names').split(',')
@@ -41,6 +66,9 @@ class LeetCodeSpider(scrapy.Spider):
         self.users = []
         self.userIndex = 0
         self.lenOfURLs = len(self.start_urls)
+        self.rules = (
+        Rule(LinkExtractor(restrict_xpaths='//tr/td[2]/a'), callback="parse_table_links", follow= True),
+    )
 
     def getSQL_DB_Engine(self, filePath = None):
 
@@ -66,6 +94,9 @@ class LeetCodeSpider(scrapy.Spider):
 
     def parse(self, response):
 
+
+        user_name = response.url.split('/')[-2]
+
         badge_onprogress_bar = response.selector.xpath("//span[@class='badge progress-bar-success']/text()").extract()
 
         has_contest = False if len(badge_onprogress_bar) <= 6 else True
@@ -82,8 +113,8 @@ class LeetCodeSpider(scrapy.Spider):
 
             user_model = {
 
-                # 'email': product_id,
-                'user_name': self.start_urls[self.userIndex].split('/')[-1],
+                'record_id': user_name + '_' + str(date.today()),
+                'user_name': user_name,
 
                 # 'first_name': product_id,
                 # 'last_name': product.title,
@@ -110,8 +141,8 @@ class LeetCodeSpider(scrapy.Spider):
 
             user_model = {
 
-                # 'email': product_id,
-                'user_name': self.start_urls[self.userIndex].split('/')[-1],
+                'record_id': user_name + '_' + str(date.today()),
+                'user_name': user_name,
 
                 # 'first_name': product_id,
                 # 'last_name': product.title,
@@ -137,18 +168,47 @@ class LeetCodeSpider(scrapy.Spider):
         if self.userIndex == self.lenOfURLs:
             df = pd.DataFrame(self.users, columns=columns)
 
-            print("export fellows.csv")
-
-            # Build the sql ULR for SqlAlchemy
-            # sql_url = "sqlite:////" + os.path.join(basedir, "story_writer.db")
-
-            df.to_csv("leetCode_spider/data/" + str(date.today()) + "_fellows.csv", sep=",", index=False)
-
-            engine = self.getSQL_DB_Engine()
+            print("export fellows_leetcode_records.csv")
 
 
-            df.to_sql(name='leetcode_records', con=engine, if_exists='append', index=False)
+            df.to_csv("leetCode_spider/data/" + str(date.today()) + "_fellows_leetcode_records.csv", sep=",", index=False)
 
+            # # Build the sql ULR for SqlAlchemy
+            # engine = self.getSQL_DB_Engine()
 
+            db_config = configparser.ConfigParser()
+            db_config.read(projectPath + DB_configs_ini_file_path)
+
+            DB_TYPE = db_config['DB_Configs']['DB_TYPE']
+            DB_DRIVER = db_config['DB_Configs']['DB_DRIVER']
+            DB_USER = db_config['DB_Configs']['DB_USER']
+            DB_PASS = db_config['DB_Configs']['DB_PASS']
+            DB_HOST = db_config['DB_Configs']['DB_HOST']
+            DB_PORT = db_config['DB_Configs']['DB_PORT']
+            DB_NAME = db_config['DB_Configs']['DB_NAME']
+            POOL_SIZE = db_config['DB_Configs']['POOL_SIZE']
+            TABLENAME = db_config['DB_Configs']['TABLENAME']
+            SQLALCHEMY_DATABASE_URI = '%s+%s://%s:%s@%s:%s/%s' % (DB_TYPE, DB_DRIVER, DB_USER,
+                                                                  DB_PASS, DB_HOST, DB_PORT, DB_NAME)
+            engine = create_engine(
+                SQLALCHEMY_DATABASE_URI, echo=False)
+
+            for user in self.users:
+                stmt = pg_insert(leetcode_record).values(user)
+                stmt = stmt.on_conflict_do_update(
+                    index_elements=[leetcode_record.record_id],
+                    set_={'num_solved': stmt.excluded.num_solved,
+                          'num_accepts': stmt.excluded.num_accepts,
+                          'num_submissions': stmt.excluded.num_submissions,
+                          'accepted_percentage': stmt.excluded.accepted_percentage,
+                          'finished_contests': stmt.excluded.finished_contests,}
+                )
+
+                r = engine.execute(stmt)
+
+            #
+            # df.to_sql(name=TABLENAME, con=engine, if_exists='append', index=False)
+            #
+            #
 
 

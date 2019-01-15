@@ -4,3 +4,6 @@ src/Scraper/leetCode_spider/.idea/workspace.xml
 *.csv
 .idea
 src/Scraper/leetCode_spider/leetCode_spider/spiders/db_configs.ini
+src/airflow/airflow_home/logs
+src/airflow/airflow_home/airflow.cfg
+src/airflow/airflow_home/unittests.cfg
