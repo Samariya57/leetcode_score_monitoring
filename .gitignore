@@ -1,9 +1,14 @@
 .DS_Store
 /.idea/workspace.xml
 src/Scraper/leetCode_spider/.idea/workspace.xml
+*.pyc
+*.log
+*.ini
 *.csv
+*.pid
 .idea
 src/Scraper/leetCode_spider/leetCode_spider/spiders/db_configs.ini
+src/DB/db_configs.ini
 src/airflow/airflow_home/logs
 src/airflow/airflow_home/airflow.cfg
 src/airflow/airflow_home/unittests.cfg

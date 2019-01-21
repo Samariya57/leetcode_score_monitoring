@@ -30,3 +30,5 @@ CREATE TABLE IF NOT EXISTS leetcode_records (
 	record_date						DATE
 );
 
+
+
