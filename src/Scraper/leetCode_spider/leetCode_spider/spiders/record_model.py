@@ -14,16 +14,20 @@ This python script will be execute while running the spider script.
 """
 
 
+# System modules
+
+
 # 3rd party modules
 import sqlalchemy as sa
-from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.ext.declarative import declarative_base
+
+# Setting for sqlalchemy
 Base = declarative_base()
 
 
-
+# class to model the fellow object
 class fellow(Base):
-    __tablename__ = "active_fellow"
+    __tablename__ = "active_fellows"
     leetcode_user_name = sa.Column(sa.VARCHAR(50), primary_key=True)
     first_name = sa.Column(sa.VARCHAR(50))
     last_name = sa.Column(sa.VARCHAR(50))
@@ -34,8 +38,7 @@ class fellow(Base):
     job_searching = sa.Column(sa.BOOLEAN())
 
 
-
-
+# class to model the leetcode_record object
 class leetcode_record(Base):
     __tablename__ = "leetcode_records"
     record_id = sa.Column(sa.VARCHAR(70), primary_key=True)
@@ -46,7 +49,4 @@ class leetcode_record(Base):
     accepted_percentage = sa.Column(sa.NUMERIC())
     finished_contests = sa.Column(sa.INTEGER())
     record_date = sa.Column(sa.DATE())
-
-
-
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #!/usr/bin/env python3
-# dash.py
+# dash_board.py
 # ---------------
 # Author: Zhongheng Li
 # Start Date: 1-18-19
@@ -30,6 +30,7 @@ import dash_table
 import dash_html_components as html
 import dash_core_components as dcc
 
+from src.models import fellow , leetcode_record
 
 
 from sqlalchemy import create_engine
@@ -76,31 +77,6 @@ Session = sessionmaker(db_engine)
 session = Session()
 
 
-# class to model the leetcode_record object
-class leetcode_record(Base):
-    __tablename__ = "leetcode_records"
-    record_id = sa.Column(sa.VARCHAR(70), primary_key=True)
-    user_name = sa.Column(sa.VARCHAR(50))
-    num_solved = sa.Column(sa.INTEGER())
-    num_accepts = sa.Column(sa.INTEGER())
-    num_submissions = sa.Column(sa.INTEGER())
-    accepted_percentage = sa.Column(sa.NUMERIC())
-    finished_contests = sa.Column(sa.INTEGER())
-    record_date = sa.Column(sa.DATE())
-
-
-
-# class to model the fellow object
-class fellow(Base):
-    __tablename__ = "active_fellows"
-    leetcode_user_name = sa.Column(sa.VARCHAR(50), primary_key=True)
-    first_name = sa.Column(sa.VARCHAR(50))
-    last_name = sa.Column(sa.VARCHAR(50))
-    email = sa.Column(sa.VARCHAR(50))
-    program = sa.Column(sa.VARCHAR(5))
-    session_location = sa.Column(sa.VARCHAR(5))
-    session_code = sa.Column(sa.VARCHAR(5))
-    job_searching = sa.Column(sa.BOOLEAN())
 
 
 # Read
@@ -197,25 +173,26 @@ def update_graph(rows):
     return html.Div(
         [
             dcc.Graph(
-                id=column,
+                id=column_info[0],
                 figure={
                     "data": [
                         {
                             "x": dff["user_name"],
-                            "y": dff[column] if column in dff else [],
+                            "y": dff[column_info[0]] if column_info[0] in dff else [],
                             "type": "bar",
                             "marker": {"color": "#0074D9"},
                         }
                     ],
                     "layout": {
+                        "title": column_info[1],
                         "xaxis": {"automargin": True},
                         "yaxis": {"automargin": True},
                         "height": 250,
-                        "margin": {"t": 10, "l": 10, "r": 10},
+                        "margin": {"t": 35, "l": 10, "r": 10},
                     },
                 },
             )
-            for column in ["num_solved","num_accepts","num_submissions","accepted_percentage"]
+            for column_info in [("num_solved","Number of Solved Questions"),("num_submissions","Number of Submissions"),("accepted_percentage","Acceptance Rate")]
         ]
     )
 
