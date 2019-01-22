@@ -1,7 +1,7 @@
 # Leetcode Score Monitoring Project Set up
 
 
-## Step 0 - Project Enviroment Set up 
+## Step 0 - Project Environment Set up 
 ### Set up Python environment and source it
 
     mkdir ~/python-virtual-environments
@@ -13,7 +13,7 @@
     source ~/python-virtual-environments/env/bin/activate
 
 
-### Perminently add project environment variables to .profile
+### Permanently add project environment variables to .profile
     
     # For Leetcode project
     export LEETCODE_PROJECT_ENV=~/python-virtual-environments/env/bin/activate
@@ -79,7 +79,7 @@ You may need to install the following
 
     sudo -u postgres createuser --interactive -P
 
-    Enter name of role to add: insight_admin
+    Enter name of role to add: <user_name>
     Enter password for new role: 
     Enter it again: 
     Shall the new role be a superuser? (y/n) n
@@ -100,13 +100,13 @@ You may need to install the following
 
 ### Grant all privileges on the previous created databases to newly created user
 
-    GRANT ALL PRIVILEGES ON DATABASE airflow TO insight_admin;
-    GRANT ALL PRIVILEGES ON DATABASE leetcode_score_monitoring TO insight_admin;
+    GRANT ALL PRIVILEGES ON DATABASE airflow TO <user_name>;
+    GRANT ALL PRIVILEGES ON DATABASE leetcode_score_monitoring TO <user_name>;
 
 
 ### Create tables in database leetcode_score_monitoring and insert sample data 
 
-    psql -U insight_admin -h 127.0.0.1 -d leetcode_score_monitoring
+    psql -U <user_name> -h 127.0.0.1 -d leetcode_score_monitoring
 
 #### Create tables with the sql statemetns in repo
 All sql statements can be found in create_tables.sql 
@@ -133,7 +133,7 @@ Go to the airflow folder
 
     cd ../leetcode_score_monitoring/src/airflow
 
-#### You can run this line everytime when you need to run Airflow
+#### You can run this line every-time when you need to run Airflow
 #### Or set this as an environment variable and replace `pwd` with ~/leetcode_score_monitoring/src/airflow 
 
     export AIRFLOW_HOME=`pwd`/airflow_home
