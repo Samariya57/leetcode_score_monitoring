@@ -190,4 +190,6 @@ def update_graph(rows):
 
 
 if __name__ == '__main__':
+    # change host from the default to '0.0.0.0' to make it publicly available
+    app.server.run(port=8050, host='127.0.0.0')
     app.run_server(debug=True)
