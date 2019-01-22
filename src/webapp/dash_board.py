@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 # dash_board.py
 # ---------------
 # Author: Zhongheng Li
@@ -9,89 +9,72 @@
 
 
 """
-This python script will be used for the front-end.
+This python script runs with dash and is used for the front-end.
 
 """
 
+import configparser
 # System modules
 import os
-from os.path import dirname as up
 from datetime import date
-
-# 3rd party modules
-import pandas as pd
-import configparser
-
+from os.path import dirname as up
 
 import dash
-import dash_table
-from dash.dependencies import Input, Output
-import dash_table
-import dash_html_components as html
 import dash_core_components as dcc
-
-from src.models import fellow , leetcode_record
-
-
+import dash_html_components as html
+import dash_table
+# 3rd party modules
+import pandas as pd
+from dash.dependencies import Input, Output
 from sqlalchemy import create_engine
-from sqlalchemy import Table, Column, String, MetaData
+from sqlalchemy.orm import sessionmaker
 
-
+# Internal modules
+from src.models import fellow, leetcode_record
 
 # Set up DB configs file path
 projectPath = up(os.getcwd())
-DB_configs_ini_file_path = "/DB/db_configs.ini"
-
-db_config = configparser.ConfigParser()
-db_config.read(projectPath + DB_configs_ini_file_path)
+DB_configs_ini_file_path = projectPath + "/DB/db_configs.ini"
 
 
-print(projectPath + DB_configs_ini_file_path)
+def getSQL_DB_Engine(filePath):
+    """
 
-DB_TYPE = db_config['DB_Configs']['DB_TYPE']
-DB_DRIVER = db_config['DB_Configs']['DB_DRIVER']
-DB_USER = db_config['DB_Configs']['DB_USER']
-DB_PASS = db_config['DB_Configs']['DB_PASS']
-DB_HOST = db_config['DB_Configs']['DB_HOST']
-DB_PORT = db_config['DB_Configs']['DB_PORT']
-DB_NAME = db_config['DB_Configs']['DB_NAME']
+    :param filePath: DB configs ini file path
+    :return: SQLalchemy database engine
+    """
+
+    config = configparser.ConfigParser()
+    config.read(filePath)
+
+    DB_TYPE = config['DB_Configs']['DB_TYPE']
+    DB_DRIVER = config['DB_Configs']['DB_DRIVER']
+    DB_USER = config['DB_Configs']['DB_USER']
+    DB_PASS = config['DB_Configs']['DB_PASS']
+    DB_HOST = config['DB_Configs']['DB_HOST']
+    DB_PORT = config['DB_Configs']['DB_PORT']
+    DB_NAME = config['DB_Configs']['DB_NAME']
+    SQLALCHEMY_DATABASE_URI = '%s+%s://%s:%s@%s:%s/%s' % (DB_TYPE, DB_DRIVER, DB_USER,
+                                                          DB_PASS, DB_HOST, DB_PORT, DB_NAME)
+    engine = create_engine(
+        SQLALCHEMY_DATABASE_URI, echo=False)
+
+    return engine
 
 
-
-SQLALCHEMY_DATABASE_URI = '%s+%s://%s:%s@%s:%s/%s' % (DB_TYPE, DB_DRIVER, DB_USER,
-
-                                                      DB_PASS, DB_HOST, DB_PORT, DB_NAME)
-db_engine = create_engine(
-    SQLALCHEMY_DATABASE_URI, echo=False)
-
-
-
-# Setting for sqlalchemy
-import sqlalchemy as sa
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-Base = declarative_base()
-
+db_engine = getSQL_DB_Engine(DB_configs_ini_file_path)
 
 Session = sessionmaker(db_engine)
 session = Session()
 
+# Get the latest updated fellows' leetcode records from database
+records = session.query(leetcode_record, fellow).join(fellow,
+                                                      leetcode_record.user_name == fellow.leetcode_user_name).filter(
+    leetcode_record.record_date == str(date.today()))
 
-
-
-# Read
-records = session.query(leetcode_record,fellow).join(fellow, leetcode_record.user_name==fellow.leetcode_user_name).filter(leetcode_record.record_date == str(date.today()))
-
-print(records.statement)
-
-df = pd.read_sql(sql = records.statement, con=records.session.bind, index_col="record_id")
-
-
-
+df = pd.read_sql(sql=records.statement, con=records.session.bind, index_col="record_id")
 
 PAGE_SIZE = 25
-
-
 
 app = dash.Dash(__name__)
 
@@ -127,6 +110,7 @@ app.layout = html.Div(
     ]
 )
 
+
 @app.callback(
     Output('table-paging-with-graph', "data"),
     [Input('table-paging-with-graph', "pagination_settings"),
@@ -160,9 +144,9 @@ def update_table(pagination_settings, sorting_settings, filtering_settings):
         )
 
     return dff.iloc[
-        pagination_settings['current_page']*pagination_settings['page_size']:
-        (pagination_settings['current_page'] + 1)*pagination_settings['page_size']
-    ].to_dict('rows')
+           pagination_settings['current_page'] * pagination_settings['page_size']:
+           (pagination_settings['current_page'] + 1) * pagination_settings['page_size']
+           ].to_dict('rows')
 
 
 @app.callback(
@@ -192,11 +176,11 @@ def update_graph(rows):
                     },
                 },
             )
-            for column_info in [("num_solved","Number of Solved Questions"),("num_submissions","Number of Submissions"),("accepted_percentage","Acceptance Rate")]
+            for column_info in
+            [("num_solved", "Number of Solved Questions"), ("num_submissions", "Number of Submissions"),
+             ("accepted_percentage", "Acceptance Rate")]
         ]
     )
-
-
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@
 
 
 """
-This is a dag to schedule the scraping script to run daily at 11:00pm EST from Monday to Friday
+This is a dag to schedule the scraping script to run daily at 7:00am EST
 
 """
 
@@ -31,8 +31,8 @@ with DAG('leetCoode_scrapying_dag',
          default_args=default_args,
          # Set for testing purpose to run in every 5 seconds
          # schedule_interval='*/5 * * * *',
-         # Should run daily at 11:00 pm
-         schedule_interval='00 23 * * 1-5',
+         # Should run daily at 7:00 am
+         schedule_interval='00 7 * * *',
          ) as dag:
 
 

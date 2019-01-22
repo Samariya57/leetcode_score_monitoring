@@ -48,4 +48,3 @@ class leetcode_record(Base):
     accepted_percentage = sa.Column(sa.NUMERIC())
     finished_contests = sa.Column(sa.INTEGER())
     record_date = sa.Column(sa.DATE())
-
