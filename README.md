@@ -27,7 +27,7 @@ Source the LEETCODE_PROJECT_ENV
 
     source $LEETCODE_PROJECT_ENV
 
-## Step 1 - Install Project dependencies  
+## Step 1 - Install Project Dependencies  
 
 ##### May need to update to python3-pip
     sudo apt install python3-pip
@@ -62,7 +62,7 @@ Modified the <...> fileds and copy and paste the content into db_configs.ini
 ### Set up PostgreSQL
 #### Install PostgreSQL if you haven't
 
-The following pages has detailed instructions for installing PostgreSQL in MacOS and Ubuntu 18.04 
+The following pages have detailed instructions for installing PostgreSQL in MacOS and Ubuntu 18.04 
 
 [Getting Started with PostgreSQL on Mac OSX](https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
 
@@ -108,14 +108,14 @@ You may need to install the following
 
     psql -U <user_name> -h 127.0.0.1 -d leetcode_score_monitoring
 
-#### Create tables with the sql statemetns in repo
+#### Create tables with the sql statements in repo
 All sql statements can be found in create_tables.sql 
 
-#### Insert sample data into database for testing with the sql statemetns in repo
+#### Insert sample data into database for testing with the sql statements in repo
 All sql statements can be found in insert_statements.sql
 
 
-## Step 3 -  Test run Scrapy Spider project and Dash webapp 
+## Step 3 -  Test Run Scrapy Spider Project and Dash Webapp 
 
 ### Test scraping with run.sh
 
