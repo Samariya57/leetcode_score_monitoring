@@ -112,6 +112,7 @@ class LeetCodeSpider(CrawlSpider):
         engine = create_engine(
             SQLALCHEMY_DATABASE_URI, echo=False)
 
+
         return engine
 
     def parse(self, response):

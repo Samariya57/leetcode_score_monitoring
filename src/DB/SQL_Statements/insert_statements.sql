@@ -73,11 +73,339 @@ DO
    		email = EXCLUDED.email,
    		session_location = EXCLUDED.session_location,
    		session_code = EXCLUDED.session_code;
+		
+		
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'rogerfederer',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+		
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'euijun0109',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+		
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'inctrl',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+		
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'strenghten',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+		
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'kmgowda',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+		
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'jacot',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+		
+
+
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'coastd54703',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+		
+
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'lanrengufeng',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'hackersplendid',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'danny1718',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+
+
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'zitaowang',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+ 'cslzy',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+
+
+
+-- Upsert sample Data in the active_fellows table;
+INSERT INTO active_fellows (leetcode_user_name, first_name, last_name, email, program, session_location, session_code, job_searching)
+VALUES
+ (
+'shaw3257',
+ 'Heng',
+ 'Lee',
+ 'zl1761@nyu.edu',
+ 'DE',
+ 'NYC',
+ '18c',
+  True
+ ) 
+ON CONFLICT (leetcode_user_name) 
+DO
+ UPDATE
+   SET leetcode_user_name = EXCLUDED.leetcode_user_name,
+   		first_name = EXCLUDED.first_name,
+   		last_name = EXCLUDED.last_name,
+   		email = EXCLUDED.email,
+   		session_location = EXCLUDED.session_location,
+   		session_code = EXCLUDED.session_code;	
+
+
+
 
 
 
 -- Sample select data to ensure if the previous update was success.
-SELECT leetcode_user_name
+SELECT *
 FROM active_fellows
 WHERE job_searching = True;
 
@@ -114,3 +442,6 @@ DO
 
 SELECT * 
 FROM leetcode_records;
+
+
+

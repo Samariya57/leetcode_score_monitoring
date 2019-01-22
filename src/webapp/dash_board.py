@@ -13,11 +13,15 @@ This python script runs with dash and is used for the front-end.
 
 """
 
-import configparser
+
 # System modules
 import os
 from datetime import date
 from os.path import dirname as up
+import sys
+import configparser
+projectPath = up(os.getcwd())
+sys.path.append(projectPath)
 
 import dash
 import dash_core_components as dcc
@@ -30,11 +34,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 # Internal modules
-from src.models import fellow, leetcode_record
+from models import fellow, leetcode_record
 
 # Set up DB configs file path
-projectPath = up(os.getcwd())
 DB_configs_ini_file_path = projectPath + "/DB/db_configs.ini"
+
+
 
 
 def getSQL_DB_Engine(filePath):
@@ -58,6 +63,7 @@ def getSQL_DB_Engine(filePath):
                                                           DB_PASS, DB_HOST, DB_PORT, DB_NAME)
     engine = create_engine(
         SQLALCHEMY_DATABASE_URI, echo=False)
+
 
     return engine
 
