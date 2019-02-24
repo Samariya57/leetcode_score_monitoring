@@ -12,3 +12,5 @@ src/DB/db_configs.ini
 src/airflow/airflow_home/logs
 src/airflow/airflow_home/airflow.cfg
 src/airflow/airflow_home/unittests.cfg
+
+
