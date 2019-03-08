@@ -127,12 +127,12 @@ You can run the following command to execute all the sql statements to insert th
 
 ### Test scraping with run.sh
 
-    sh ~/leetcode_project/leetcode_score_monitoring/src/Scraper/leetCode_spider/run.sh
+    sh ~/leetcode_score_monitoring/src/Scraper/leetCode_spider/run.sh
 
 
 ### Test Run Dash Board
     
-    python ~/leetcode_project/leetcode_score_monitoring/src/webapp/dash_board.py
+    python ~/leetcode_score_monitoring/src/webapp/dash_board.py
 
 
 ## Step 4 - Set up Airflow
