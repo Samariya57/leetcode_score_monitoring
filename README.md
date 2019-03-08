@@ -17,7 +17,7 @@
     
     # For Leetcode project
     export LEETCODE_PROJECT_ENV=~/python-virtual-environments/env/bin/activate
-    export LEETCODE_PROJECT_SCRAPER_PATH=~/leetcode_project/leetcode_score_monitoring/src/Scraper/leetCode_spider
+    export LEETCODE_PROJECT_SCRAPER_PATH=~/leetcode_score_monitoring/src/Scraper/leetCode_spider
 
 After added the above lines in to ~/.profile then source the profile by 
 
