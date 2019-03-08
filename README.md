@@ -132,6 +132,7 @@ You can run the following command to execute all the sql statements to insert th
 
 ### Test Run Dash Board
     
+    cd ~/leetcode_score_monitoring/src
     python ~/leetcode_score_monitoring/src/webapp/dash_board.py
 
 
