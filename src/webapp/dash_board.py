@@ -5,7 +5,7 @@
 # ---------------
 # Author: Zhongheng Li
 # Start Date: 1-18-19
-# Last Modified Date: 1-18-19
+# Last Modified Date: 3-07-19
 
 
 """
@@ -19,9 +19,12 @@ import os
 from datetime import date
 from os.path import dirname as up
 import sys
+sys.path.append("..")
 import configparser
-projectPath = up(os.getcwd())
-sys.path.append(projectPath)
+projectPath = os.getcwd()
+
+print(projectPath)
+#sys.path.append(projectPath)
 
 import dash
 import dash_core_components as dcc
@@ -34,7 +37,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 # Internal modules
-from models import fellow, leetcode_record
+
+from src.models import fellow, leetcode_record
 
 # Set up DB configs file path
 DB_configs_ini_file_path = projectPath + "/DB/db_configs.ini"
@@ -64,15 +68,16 @@ def getSQL_DB_Engine(filePath):
     engine = create_engine(
         SQLALCHEMY_DATABASE_URI, echo=False)
 
-
+    
     return engine
 
 
 db_engine = getSQL_DB_Engine(DB_configs_ini_file_path)
 
 Session = sessionmaker(db_engine)
-session = Session()
+session = Session()    
 
+    
 # Get the latest updated fellows' leetcode records from database
 records = session.query(leetcode_record, fellow).join(fellow,
                                                       leetcode_record.user_name == fellow.leetcode_user_name).filter(
@@ -115,8 +120,7 @@ app.layout = html.Div(
         )
     ]
 )
-
-
+    
 @app.callback(
     Output('table-paging-with-graph', "data"),
     [Input('table-paging-with-graph', "pagination_settings"),
@@ -153,8 +157,7 @@ def update_table(pagination_settings, sorting_settings, filtering_settings):
            pagination_settings['current_page'] * pagination_settings['page_size']:
            (pagination_settings['current_page'] + 1) * pagination_settings['page_size']
            ].to_dict('rows')
-
-
+                                                                                                                                                                                                                            1,23          Top
 @app.callback(
     Output('table-paging-with-graph-container', "children"),
     [Input('table-paging-with-graph', "data")])
@@ -193,3 +196,4 @@ if __name__ == '__main__':
     # change host from the default to '0.0.0.0' to make it publicly available
     app.server.run(port=8050, host='0.0.0.0')
     app.run_server(debug=True)
+                                 
