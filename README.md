@@ -111,14 +111,14 @@ You may need to install the following
 #### Create tables with the sql statements in repo
 All sql statements can be found in create_tables.sql 
 
-You can runn the following command to execute all the sql statements to create the tables you needed.
+You can run the following command to execute all the sql statements to create the tables you needed.
 
     psql -U <user_name> -h 127.0.0.1 -d leetcode_score_monitoring -a -f ~/leetcode_score_monitoring/src/DB/SQL_Statements/create_tables.sql
 
 #### Insert sample data into database for testing with the sql statements in repo
 All sql statements can be found in insert_statements.sql
 
-You can runn the following command to execute all the sql statements to insert the sample data you needed.
+You can run the following command to execute all the sql statements to insert the sample data you needed.
 
     psql -U <user_name> -h 127.0.0.1 -d leetcode_score_monitoring -a -f ~/leetcode_score_monitoring/src/DB/SQL_Statements/insert_statements.sql
 
