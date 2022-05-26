@@ -107,7 +107,7 @@ tenacity==4.8.0
 text-unidecode==1.2
 thrift==0.11.0
 traitlets==4.3.2
-Twisted==18.9.0
+Twisted==22.4.0
 tzlocal==1.5.1
 unicodecsv==0.14.1
 urllib3==1.24.1
