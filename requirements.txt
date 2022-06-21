@@ -63,7 +63,7 @@ Markdown==2.6.11
 MarkupSafe==1.1.0
 monotonic==1.5
 nbformat==4.4.0
-numpy==1.15.4
+numpy==1.22.0
 ordereddict==1.1
 pandas==0.23.4
 parsel==1.5.1
